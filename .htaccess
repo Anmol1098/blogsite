@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+Rewritecond %{RREQUEST_FILENAME} !-f
+Rewritecond %{RREQUEST_FILENAME} !-d
+
+RewriteRule ^search?$ search.php [QSA]
+RewriteRule ^category/([^/]+)?$ categories.php?slug=$1  [QSA]
+RewriteRule ^category/([^/]+)/([^/]+)?$ categories.php?slug=$1&page=$2  [QSA]
+RewriteRule ^article/([^/]+)?$ detail.php?slug=$1  [QSA]
+</IFModule>
